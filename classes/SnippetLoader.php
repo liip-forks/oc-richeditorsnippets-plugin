@@ -15,14 +15,12 @@ class SnippetLoader
 	/**
 	 * Add a component registered as a snippet to the active controller.
 	 *
-	 * @param array $snippetInfo	The info of the snippet to register
-	 * @return string				The generated unique alias for this snippet
+	 * @param array $snippetInfo	    The info of the snippet to register
+     * @param CmsController $controller Controller to attach snippet to
+	 * @return string				    The generated unique alias for this snippet
 	 */
-	public static function registerComponentSnippet($snippetInfo)
+	public static function registerComponentSnippet($snippetInfo, CmsController $controller)
 	{
-		$theme = Theme::getActiveTheme();
-		$controller = CmsController::getController();
-
 		// Make an unique alias for this snippet based on its name and parameters
 		$snippetInfo['code'] = uniqid($snippetInfo['code'] . md5(serialize($snippetInfo['properties'])));
 

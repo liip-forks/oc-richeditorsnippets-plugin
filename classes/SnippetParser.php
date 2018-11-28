@@ -29,7 +29,7 @@ class SnippetParser
 
             if (isset($snippetInfo['component'])) {
                 // The snippet is a component registered as a snippet
-                $snippetAlias = SnippetLoader::registerComponentSnippet($snippetInfo);
+                $snippetAlias = SnippetLoader::registerComponentSnippet($snippetInfo, $controller);
                 $generatedMarkup = $controller->renderComponent($snippetAlias);
             }
             else {
